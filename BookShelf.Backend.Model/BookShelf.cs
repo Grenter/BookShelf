@@ -1,6 +1,6 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 
-namespace BookShelf.Backend.Lambda
+namespace BookShelf.Backend.Model
 {
     public class BookShelf
     {
@@ -8,5 +8,6 @@ namespace BookShelf.Backend.Lambda
         public string BookShelfId { get; set; }
         [DynamoDBProperty]
         public string Name { get; set; }
+
     }
 }
