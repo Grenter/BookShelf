@@ -22,10 +22,7 @@ namespace BookShelf.Backend.Lambda
 
             var shelf = dbContext.LoadAsync<Model.BookShelf>(shelfId);
 
-            context.Logger.LogLine(shelf.Result.Name);
-
-            return ResponseBuilder.Http200(JsonConvert.SerializeObject(shelf), new Dictionary<string, string> { { "Content-Type", "application/json" } });
-
+            return ResponseBuilder.Http200(JsonConvert.SerializeObject(shelf.Result), new Dictionary<string, string> { { "Content-Type", "application/json" } });
         }
     }
 }
