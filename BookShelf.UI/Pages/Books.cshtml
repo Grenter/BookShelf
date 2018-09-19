@@ -9,14 +9,35 @@
 }
 else
 {
-    <ul>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-6">
+                Title
+            </div>
+            <div class="col">
+                Authour(s)
+            </div>
+        </div>
+        <hr />
         @foreach (var book in books)
         {
-            <li>@book.Title - @book.Authors</li>
+            <div class="row">
+                <div class="col">
+                    <img src="@book.CoverImage" class="cover-image" />
+                </div>
+                <div class="col-6">
+                    @book.Title
+                </div>
+                <div class="col">
+                    @book.Authors
+                </div>
+            </div>
         }
-    </ul>
-}
+    </div>
 
+}
 
 @functions
 {
@@ -31,5 +52,6 @@ else
     {
         public string Title { get; set; }
         public string Authors { get; set; }
+        public string CoverImage { get; set; }
     }
 }
