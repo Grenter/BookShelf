@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Backend.Model", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Backend.Lambda.Util", "BookShelf.Backend.Lambda.Util\BookShelf.Backend.Lambda.Util.csproj", "{1894316D-121B-43A6-82D7-AB740AFEA3D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShelf.UI", "BookShelf.UI\BookShelf.UI.csproj", "{CA4E60B0-675B-4716-8990-EAA4B72AE258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.UI", "BookShelf.UI\BookShelf.UI.csproj", "{CA4E60B0-675B-4716-8990-EAA4B72AE258}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
