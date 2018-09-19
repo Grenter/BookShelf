@@ -1,0 +1,17 @@
+Todo:
+- Blazor UI to display books
+- UI to add new Book
+- Host on Github pages
+- Change Books type to Book (DynamoDb table name currently Books)
+- Clean up API gateway addresses
+- Add DynamoDb Attributes to Book object
+- Put Book Function
+- Delete Book Function
+- UI for update and delete
+- Cognito?
+- S3 Hosting
+
+Done:
+- GetBooks Function
+- PostBook Function
+- Db Utils
