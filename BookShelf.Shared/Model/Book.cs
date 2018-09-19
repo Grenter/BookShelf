@@ -1,8 +1,8 @@
-﻿namespace BookShelf.Backend.Model
+﻿namespace BookShelf.Shared.Model
 {
-    public class Books
+    public class Book
     {
-        public string BookId { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Authors { get; set; }
         public string Shelf { get; set; }

@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookShelf.Backend.Lambda.Util\BookShelf.Backend.Lambda.Util.csproj" />
-    <ProjectReference Include="..\BookShelf.Backend.Model\BookShelf.Backend.Model.csproj" />
+    <ProjectReference Include="..\BookShelf.Shared\BookShelf.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
