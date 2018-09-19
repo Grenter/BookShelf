@@ -1,8 +1,7 @@
 Todo:
-- Blazor UI to display books
-- UI to add new Book
-- Host on Github pages
 - Change Books type to Book (DynamoDb table name currently Books)
+- Shared Library for Book objects
+- Host on Github pages
 - Clean up API gateway addresses
 - Add DynamoDb Attributes to Book object
 - Put Book Function
@@ -12,6 +11,8 @@ Todo:
 - S3 Hosting
 
 Done:
+- UI to add new Book
+- Blazor UI to display books
 - GetBooks Function
 - PostBook Function
 - Db Utils

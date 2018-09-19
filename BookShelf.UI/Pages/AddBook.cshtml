@@ -1,0 +1,40 @@
+﻿@using BookShelf.UI.Model
+@page "/addbook"
+@inject HttpClient Http
+
+<h1>Add Book</h1>
+
+<div class="col-1">
+    <input placeholder="Book Title" bind="@book.Title" />
+</div>
+<div class="col-1">
+    <input placeholder="Book Author(s)" bind="@book.Authors" />
+</div>
+<div class="col-1">
+    <input placeholder="Book Cover Image" bind="@book.CoverImage" />
+</div>
+<div class="col-1">
+    <input placeholder="Book Shelf" bind="@book.Shelf" />
+</div>
+<div class="col-1">
+    <input placeholder="Genre" bind="@book.Genre" />
+</div>
+<div class="col-1">
+    <span>Own</span>
+    <input type="checkbox" bind="@book.Own" />
+</div>
+
+<hr />
+<div class="col">
+    <button onclick="@Add">Add Book</button>
+</div>
+
+    @functions
+    {
+    Book book = new Book();
+
+    void Add()
+    {
+        Http.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
+    }
+}
