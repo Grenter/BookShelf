@@ -1,5 +1,4 @@
 Todo:
-- Shared Library for Book objects
 - Host on Github pages
 - Clean up API gateway addresses
 - Add DynamoDb Attributes to Book object
@@ -10,6 +9,7 @@ Todo:
 - S3 Hosting
 
 Done:
+- Shared Library for Book objects
 - Change Books type to Book (DynamoDb table name currently Books)
 - UI to add new Book
 - Blazor UI to display books

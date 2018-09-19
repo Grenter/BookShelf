@@ -1,4 +1,4 @@
-﻿@using BookShelf.UI.Model
+﻿@using BookShelf.Shared.Model
 @page "/addbook"
 @inject HttpClient Http
 
@@ -25,12 +25,13 @@
 </div>
 
 <hr />
+
 <div class="col">
     <button onclick="@Add">Add Book</button>
 </div>
 
-    @functions
-    {
+@functions
+{
     Book book = new Book();
 
     void Add()
