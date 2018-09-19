@@ -1,5 +1,4 @@
 Todo:
-- Host on Github pages
 - Clean up API gateway addresses
 - Add DynamoDb Attributes to Book object
 - Put Book Function
@@ -9,6 +8,7 @@ Todo:
 - S3 Hosting
 
 Done:
+- Host on Github pages
 - Shared Library for Book objects
 - Change Books type to Book (DynamoDb table name currently Books)
 - UI to add new Book
