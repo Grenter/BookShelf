@@ -1,4 +1,5 @@
-﻿using Amazon.Lambda.APIGatewayEvents;
+﻿using System;
+using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using BookShelf.Backend.Lambda.Util;
 using BookShelf.Backend.Model;
@@ -19,6 +20,21 @@ namespace BookShelf.Backend.Lambda
             var books = booksSerch.Result;
 
             return ResponseBuilder.Http200(JsonConvert.SerializeObject(books), new Dictionary<string, string> { { "Content-Type", "application/json" } });
+        }
+
+        public APIGatewayProxyResponse PostBook(APIGatewayProxyRequest request, ILambdaContext context)
+        {
+            var book = JsonConvert.DeserializeObject<Books>(request.Body);
+
+            book.BookId = Guid.NewGuid().ToString();
+
+            var dbContext = DynamoDbUtil.BuildContext();
+
+            dbContext.SaveAsync(book).Wait();
+
+            var reponse = ResponseBuilder.Http200(book.BookId);
+
+            return reponse;
         }
     }
 }
