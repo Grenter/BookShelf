@@ -19,7 +19,7 @@ namespace BookShelf.Backend.Lambda.Tests
 
             var response = bookShelfFunction.Get(Substitute.For<APIGatewayProxyRequest>(), Substitute.For<ILambdaContext>());
 
-            var bookJson = JsonConvert.DeserializeObject<Book>(response.Body);
+            var bookJson = JsonConvert.DeserializeObject<Books>(response.Body);
 
             Assert.That(bookJson.Title, Is.EqualTo("Test-Title"));
         }

@@ -4,6 +4,7 @@ using BookShelf.Backend.Lambda.Util;
 using BookShelf.Backend.Model;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Amazon.DynamoDBv2.DataModel;
 
 namespace BookShelf.Backend.Lambda
 {
@@ -13,9 +14,11 @@ namespace BookShelf.Backend.Lambda
         {
             var dbContext = DynamoDbUtil.BuildContext();
 
-            var shelf = dbContext.CreateBatchGet<Book>();
+            var booksSerch = dbContext.ScanAsync<Books>(new List<ScanCondition>()).GetRemainingAsync();
 
-            return ResponseBuilder.Http200(JsonConvert.SerializeObject(shelf.Results), new Dictionary<string, string> { { "Content-Type", "application/json" } });
+            var books = booksSerch.Result;
+
+            return ResponseBuilder.Http200(JsonConvert.SerializeObject(books), new Dictionary<string, string> { { "Content-Type", "application/json" } });
         }
     }
 }

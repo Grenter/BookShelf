@@ -10,7 +10,7 @@ namespace BookShelf.Backend.Model.Converters
     {
         public DynamoDBEntry ToEntry(object value)
         {
-            var book = value as Book;
+            var book = value as Books;
             if (book == null) return null;
 
             var json = JsonConvert.SerializeObject(book);
@@ -20,15 +20,15 @@ namespace BookShelf.Backend.Model.Converters
         public object FromEntry(DynamoDBEntry entry)
         {
             var primitive = entry as Primitive;
-            if (primitive == null) return new List<Book>();
+            if (primitive == null) return new List<Books>();
 
             if (primitive.Type != DynamoDBEntryType.String)
             {
-                throw new InvalidCastException($"Book cannot be converted as its type is {primitive.Type} with a value of {primitive.Value}");
+                throw new InvalidCastException($"Books cannot be converted as its type is {primitive.Type} with a value of {primitive.Value}");
             }
 
             var json = primitive.AsString();
-            return JsonConvert.DeserializeObject<List<Book>>(json);
+            return JsonConvert.DeserializeObject<List<Books>>(json);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace BookShelf.Backend.Model
         [DynamoDBProperty]
         public string Name { get; set; }
         [DynamoDBProperty(Converter = typeof(BookConverter))]
-        public List<Book> Books { get; set; }
+        public List<Books> Books { get; set; }
     }
 }
