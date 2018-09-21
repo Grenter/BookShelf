@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AssemblyName>BookShelf.Lambda</AssemblyName>
+    <RootNamespace>BookShelf.Lambda</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

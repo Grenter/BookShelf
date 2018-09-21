@@ -1,16 +1,16 @@
-﻿using Amazon.DynamoDBv2.DataModel;
+﻿using System;
+using System.Collections.Generic;
+using Amazon.DynamoDBv2.DataModel;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using BookShelf.Backend.Lambda.Util;
 using BookShelf.Shared.Model;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace BookShelf.Backend.Lambda
+namespace BookShelf.Lambda
 {
     public class BookFunction
     {
