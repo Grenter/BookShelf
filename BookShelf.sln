@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Backend.Lambda.Tests", "BookShelf.Backend.Lambda.Tests\BookShelf.Backend.Lambda.Tests.csproj", "{8E72F4F0-92A0-4FC9-8677-BBFFD6947D34}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.UI", "BookShelf.UI\BookShelf.UI.csproj", "{CA4E60B0-675B-4716-8990-EAA4B72AE258}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Shared", "BookShelf.Shared\BookShelf.Shared.csproj", "{82002B69-D5B0-4EE4-AD3F-A9FD08E05234}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Lambda", "BookShe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Lambda.Util", "BookShelf.Lambda.Util\BookShelf.Lambda.Util.csproj", "{AF4C9DE7-880A-4BA2-85F0-9D887EC2BC29}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookShelf.Lambda.Tests", "BookShelf.Lambda.Tests\BookShelf.Lambda.Tests.csproj", "{D6F51B6E-CFA0-4693-9F59-8408B0860CB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8E72F4F0-92A0-4FC9-8677-BBFFD6947D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E72F4F0-92A0-4FC9-8677-BBFFD6947D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E72F4F0-92A0-4FC9-8677-BBFFD6947D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E72F4F0-92A0-4FC9-8677-BBFFD6947D34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CA4E60B0-675B-4716-8990-EAA4B72AE258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA4E60B0-675B-4716-8990-EAA4B72AE258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA4E60B0-675B-4716-8990-EAA4B72AE258}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{AF4C9DE7-880A-4BA2-85F0-9D887EC2BC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF4C9DE7-880A-4BA2-85F0-9D887EC2BC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4C9DE7-880A-4BA2-85F0-9D887EC2BC29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F51B6E-CFA0-4693-9F59-8408B0860CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F51B6E-CFA0-4693-9F59-8408B0860CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F51B6E-CFA0-4693-9F59-8408B0860CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F51B6E-CFA0-4693-9F59-8408B0860CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

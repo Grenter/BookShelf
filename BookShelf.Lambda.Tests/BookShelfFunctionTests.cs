@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace BookShelf.Backend.Lambda.Tests
+namespace BookShelf.Lambda.Tests
 {
     [TestFixture]
     public class BookShelfFunctionTests
