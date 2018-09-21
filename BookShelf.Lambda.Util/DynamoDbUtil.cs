@@ -1,10 +1,10 @@
-﻿using Amazon;
+﻿using System;
+using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.Runtime;
-using System;
 
-namespace BookShelf.Backend.Lambda.Util
+namespace BookShelf.Lambda.Util
 {
     public static class DynamoDbUtil
     {

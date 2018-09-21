@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
-using BookShelf.Backend.Lambda.Util;
+using BookShelf.Lambda.Util;
 using BookShelf.Shared.Model;
 using Newtonsoft.Json;
 

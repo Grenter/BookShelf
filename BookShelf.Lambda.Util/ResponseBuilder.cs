@@ -1,8 +1,8 @@
-﻿using Amazon.Lambda.APIGatewayEvents;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
+using Amazon.Lambda.APIGatewayEvents;
 
-namespace BookShelf.Backend.Lambda.Util
+namespace BookShelf.Lambda.Util
 {
     public class ResponseBuilder
     {
