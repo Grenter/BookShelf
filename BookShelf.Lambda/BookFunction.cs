@@ -47,7 +47,7 @@ namespace BookShelf.Lambda
                 }
             }
 
-            return ResponseBuilder.Http200(JsonConvert.SerializeObject("Success"), new Dictionary<string, string> {{"Content-Type", "application/json"}});
+            return ResponseBuilder.Http200(JsonConvert.SerializeObject(true), new Dictionary<string, string> {{"Content-Type", "application/json"}});
         }
 
         public APIGatewayProxyResponse PostBook(APIGatewayProxyRequest request, ILambdaContext context)

@@ -71,12 +71,23 @@ else
 
     protected override async Task OnInitAsync()
     {
-        books = await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books");
+        await GetBooks();
     }
 
     async Task Reset()
     {
-        await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
+        books = null;
+        var success = await Http.GetJsonAsync<bool>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
+
+        if (success)
+        {
+            await GetBooks();
+        }
+    }
+
+    async Task GetBooks()
+    {
+        books = await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books");
     }
 
     void Add()
