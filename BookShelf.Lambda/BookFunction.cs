@@ -82,9 +82,26 @@ namespace BookShelf.Lambda
 
             dbContext.SaveAsync(book).Wait();
 
-            var reponse = ResponseBuilder.Http200(book.Id);
+            var reponse = ResponseBuilder.Http200(JsonConvert.SerializeObject(book.Id));
 
             return reponse;
+        }
+
+        public APIGatewayProxyResponse DeleteBook(APIGatewayProxyRequest request, ILambdaContext context)
+        {
+            var qryParams = request.QueryStringParameters;
+
+            context.Logger.LogLine(string.Join(',', qryParams.Keys));
+
+            var dbContext = DynamoDbUtil.BuildContext();
+
+            var bookData = dbContext.LoadAsync<Book>(qryParams["bookId"]);
+
+            var book = bookData.Result;
+
+            dbContext.DeleteAsync(book).Wait();
+
+            return ResponseBuilder.Http200(JsonConvert.SerializeObject(true));
         }
     }
 }
