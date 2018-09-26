@@ -2,40 +2,48 @@
 @page "/addbook"
 @inject HttpClient Http
 
-<h1>Add Book</h1>
+<div class="form-group col-2">
+    <label for="title">Title:</label>
+    <input placeholder="Title" bind="@book.Title" class="form-control" id="title"/>
+</div>
 
-<div class="col-1">
-    <input placeholder="Book Title" bind="@book.Title" />
+<div class="form-group col-2">
+    <label for="author">Author(s):</label>
+    <input placeholder="Author(s)" bind="@book.Authors" class="form-control" id="author" />
 </div>
-<div class="col-1">
-    <input placeholder="Book Author(s)" bind="@book.Authors" />
+
+<div class="form-group col-2">
+    <label for="image">Cover Image:</label>
+    <input placeholder="Cover Image" bind="@book.CoverImage" class="form-control" id="image" />
 </div>
-<div class="col-1">
-    <input placeholder="Book Cover Image" bind="@book.CoverImage" />
+
+<div class="form-group col-2">
+    <label for="shelf">Shelf:</label>
+    <input placeholder="Shelf" bind="@book.Shelf" class="form-control" id="shelf" />
 </div>
-<div class="col-1">
-    <input placeholder="Book Shelf" bind="@book.Shelf" />
+
+<div class="form-group col-2">
+    <label for="genre">Genre:</label>
+    <input placeholder="Genre" bind="@book.Genre" class="form-control" id="genre" />
 </div>
-<div class="col-1">
-    <input placeholder="Genre" bind="@book.Genre" />
-</div>
-<div class="col-1">
-    <span>Own</span>
-    <input type="checkbox" bind="@book.Own" />
+
+<div class="checkbox col-2">
+    <label for="own">Own:</label>
+    <input type="checkbox" bind="@book.Own" id="own"/>
 </div>
 
 <hr />
 
 <div class="col">
-    <button onclick="@Add">Add Book</button>
+    <button onclick="@Add" class="btn btn-success">Add Book</button>
 </div>
 
 @functions
 {
     Book book = new Book();
 
-    void Add()
+    async Task Add()
     {
-        Http.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
+        await Http.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
     }
 }

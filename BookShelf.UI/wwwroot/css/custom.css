@@ -2,3 +2,8 @@
     max-width: 100px;
     margin: 2px
 }
+
+.btn {
+    padding: 3px 6px;
+    margin: 0 3px 0 3px;
+}

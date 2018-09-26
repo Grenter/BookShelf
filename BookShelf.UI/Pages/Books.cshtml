@@ -2,57 +2,72 @@
 @page "/books"
 @inject HttpClient Http
 
-<h1>Books</h1>
+<h1>@(displayAdd ? "Add Book" : "Books")</h1>
 
-<div class="col">
-    <button onclick="@Reset">Reset List</button>
-</div>
-
-@if (books == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div class="container">
-        <div class="row">
-            <div class="col">
-            </div>
-            <div class="col-6">
-                Title
-            </div>
-            <div class="col">
-                Authour(s)
-            </div>
-            <div class="col">
-                Shelf
-            </div>
-        </div>
-        <hr />
-        @foreach (var book in books)
+<div class="container">
+    <div class="row">
+        @if (!displayAdd)
         {
-            <div class="row">
-                <div class="col">
-                    <img src="@book.CoverImage" class="cover-image" />
-                </div>
-                <div class="col-6">
-                    @book.Title
-                </div>
-                <div class="col">
-                    @book.Authors
-                </div>
-                <div class="col">
-                    @book.Shelf
-                </div>
+            <div class="col">
+                <button onclick="@Reset" class="btn btn-danger float-right">Reset List</button>
+                <button onclick="@Add" class="btn float-right">Add Book</button>
             </div>
         }
     </div>
+</div>
 
+@if (displayAdd)
+{
+    <AddBook />
+}
+else
+{
+    @if (books == null)
+     {
+         <p><em>Loading...</em></p>
+     }
+     else
+     {
+         <div class="container">
+             <div class="row">
+                 <div class="col">
+                 </div>
+                 <div class="col-6">
+                     Title
+                 </div>
+                 <div class="col">
+                     Authour(s)
+                 </div>
+                 <div class="col">
+                     Shelf
+                 </div>
+             </div>
+             <hr/>
+             @foreach (var book in books)
+             {
+                 <div class="row">
+                     <div class="col">
+                         <img src="@book.CoverImage" class="cover-image"/>
+                     </div>
+                     <div class="col-6">
+                         @book.Title
+                     </div>
+                     <div class="col">
+                         @book.Authors
+                     </div>
+                     <div class="col">
+                         @book.Shelf
+                     </div>
+                 </div>
+             }
+         </div>
+     }
 }
 
 @functions
 {
     List<Book> books;
+    bool displayAdd = false;
 
     protected override async Task OnInitAsync()
     {
@@ -62,5 +77,10 @@ else
     async Task Reset()
     {
         await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
+    }
+
+    void Add()
+    {
+        displayAdd = true;
     }
 }
