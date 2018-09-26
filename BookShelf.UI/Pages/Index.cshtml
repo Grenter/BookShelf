@@ -1,1 +1,64 @@
 ﻿@page "/"
+@inherits BookShelf.UI.Pages.BookViewModel
+
+<h1>@(DisplayAdd ? "Add Book" : "Books")</h1>
+
+<div class="container">
+    <div class="row">
+        @if (!DisplayAdd)
+        {
+            <div class="col">
+                <button onclick="@Reset" class="btn btn-danger float-right">Reset List</button>
+                <button onclick="@(() => {DisplayAdd = !DisplayAdd;})" class="btn float-right">Add Book</button>
+            </div>
+        }
+    </div>
+</div>
+
+@if (DisplayAdd)
+{
+    <AddBook OnBookCreate=@Save />
+}
+else
+{
+    @if (Books == null)
+     {
+         <p><em>Loading...</em></p>
+     }
+     else
+     {
+         <div class="container">
+             <div class="row">
+                 <div class="col">
+                 </div>
+                 <div class="col-6">
+                     Title
+                 </div>
+                 <div class="col">
+                     Authour(s)
+                 </div>
+                 <div class="col">
+                     Shelf
+                 </div>
+             </div>
+             <hr />
+             @foreach (var book in Books)
+             {
+                 <div class="row">
+                     <div class="col">
+                         <img src="@book.CoverImage" class="cover-image" />
+                     </div>
+                     <div class="col-6">
+                         @book.Title
+                     </div>
+                     <div class="col">
+                         @book.Authors
+                     </div>
+                     <div class="col">
+                         @book.Shelf
+                     </div>
+                 </div>
+             }
+         </div>
+     }
+}
