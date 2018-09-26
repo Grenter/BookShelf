@@ -26,7 +26,6 @@ namespace BookShelf.UI.Services
             await _httpClient.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
         }
 
-
         public async Task<bool> Reset()
         {
             return await _httpClient.GetJsonAsync<bool>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
