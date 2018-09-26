@@ -1,4 +1,5 @@
 Todo:
+- Validation
 - Put Book Function
 - Clean up API gateway addresses
 - Add DynamoDb Attributes to Book object
