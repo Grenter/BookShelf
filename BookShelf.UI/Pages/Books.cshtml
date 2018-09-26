@@ -4,6 +4,10 @@
 
 <h1>Books</h1>
 
+<div class="col">
+    <button onclick="@Reset">Reset List</button>
+</div>
+
 @if (books == null)
 {
     <p><em>Loading...</em></p>
@@ -55,4 +59,8 @@ else
         books = await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books");
     }
 
+    async Task Reset()
+    {
+        await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
+    }
 }
