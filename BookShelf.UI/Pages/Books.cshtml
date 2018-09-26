@@ -70,7 +70,7 @@ else
 {
 
     [Inject]
-    private BookService _bookService { get; set; }
+    private BookService BookService { get; set; }
 
     IEnumerable<Book> _books;
     bool _displayAdd;
@@ -83,7 +83,7 @@ else
     async Task Reset()
     {
         _books = null;
-        var success = await _bookService.Reset();
+        var success = await BookService.Reset();
 
         if (success)
         {
@@ -93,7 +93,7 @@ else
 
     async Task GetBooks()
     {
-        _books = await _bookService.GetBooks();
+        _books = await BookService.GetBooks();
     }
 
     void Add()

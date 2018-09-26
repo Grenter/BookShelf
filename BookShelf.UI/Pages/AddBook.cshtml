@@ -1,35 +1,36 @@
 ﻿@using BookShelf.Shared.Model
+@using BookShelf.UI.Services
 @page "/addbook"
 @inject HttpClient Http
 
 <div class="form-group col-2">
     <label for="title">Title:</label>
-    <input placeholder="Title" bind="@book.Title" class="form-control" id="title"/>
+    <input placeholder="Title" bind="@_book.Title" class="form-control" id="title"/>
 </div>
 
 <div class="form-group col-2">
     <label for="author">Author(s):</label>
-    <input placeholder="Author(s)" bind="@book.Authors" class="form-control" id="author" />
+    <input placeholder="Author(s)" bind="@_book.Authors" class="form-control" id="author" />
 </div>
 
 <div class="form-group col-2">
     <label for="image">Cover Image:</label>
-    <input placeholder="Cover Image" bind="@book.CoverImage" class="form-control" id="image" />
+    <input placeholder="Cover Image" bind="@_book.CoverImage" class="form-control" id="image" />
 </div>
 
 <div class="form-group col-2">
     <label for="shelf">Shelf:</label>
-    <input placeholder="Shelf" bind="@book.Shelf" class="form-control" id="shelf" />
+    <input placeholder="Shelf" bind="@_book.Shelf" class="form-control" id="shelf" />
 </div>
 
 <div class="form-group col-2">
     <label for="genre">Genre:</label>
-    <input placeholder="Genre" bind="@book.Genre" class="form-control" id="genre" />
+    <input placeholder="Genre" bind="@_book.Genre" class="form-control" id="genre" />
 </div>
 
 <div class="checkbox col-2">
     <label for="own">Own:</label>
-    <input type="checkbox" bind="@book.Own" id="own"/>
+    <input type="checkbox" bind="@_book.Own" id="own"/>
 </div>
 
 <hr />
@@ -40,10 +41,13 @@
 
 @functions
 {
-    Book book = new Book();
+    [Inject]
+    private BookService BookService { get; set; }
+
+    readonly Book _book = new Book();
 
     async Task Add()
     {
-        await Http.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
+        await BookService.PostBook(_book);
     }
 }

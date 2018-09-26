@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Blazor;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 
 namespace BookShelf.UI.Services
@@ -19,6 +20,12 @@ namespace BookShelf.UI.Services
         {
             return await _httpClient.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books");
         }
+
+        public async Task PostBook(Book book)
+        {
+            await _httpClient.SendJsonAsync(HttpMethod.Post, "https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books", book);
+        }
+
 
         public async Task<bool> Reset()
         {
