@@ -6,6 +6,7 @@ Todo:
 - UI for update and delete
 - Cognito?
 - S3 Hosting
+- Investigate Newtonsoft error
 
 Done:
 - Reset API

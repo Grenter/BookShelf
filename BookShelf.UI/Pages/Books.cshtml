@@ -1,12 +1,14 @@
-﻿@using BookShelf.Shared.Model
+﻿@using System.Net
+@using BookShelf.Shared.Model
+@using BookShelf.UI.Services
 @page "/books"
 @inject HttpClient Http
 
-<h1>@(displayAdd ? "Add Book" : "Books")</h1>
+<h1>@(_displayAdd ? "Add Book" : "Books")</h1>
 
 <div class="container">
     <div class="row">
-        @if (!displayAdd)
+        @if (!_displayAdd)
         {
             <div class="col">
                 <button onclick="@Reset" class="btn btn-danger float-right">Reset List</button>
@@ -16,13 +18,13 @@
     </div>
 </div>
 
-@if (displayAdd)
+@if (_displayAdd)
 {
     <AddBook />
 }
 else
 {
-    @if (books == null)
+    @if (_books == null)
      {
          <p><em>Loading...</em></p>
      }
@@ -43,7 +45,7 @@ else
                  </div>
              </div>
              <hr/>
-             @foreach (var book in books)
+             @foreach (var book in _books)
              {
                  <div class="row">
                      <div class="col">
@@ -66,8 +68,12 @@ else
 
 @functions
 {
-    List<Book> books;
-    bool displayAdd = false;
+
+    [Inject]
+    private BookService _bookService { get; set; }
+
+    IEnumerable<Book> _books;
+    bool _displayAdd;
 
     protected override async Task OnInitAsync()
     {
@@ -76,8 +82,8 @@ else
 
     async Task Reset()
     {
-        books = null;
-        var success = await Http.GetJsonAsync<bool>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset");
+        _books = null;
+        var success = await _bookService.Reset();
 
         if (success)
         {
@@ -87,11 +93,11 @@ else
 
     async Task GetBooks()
     {
-        books = await Http.GetJsonAsync<List<Book>>("https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books");
+        _books = await _bookService.GetBooks();
     }
 
     void Add()
     {
-        displayAdd = true;
+        _displayAdd = true;
     }
 }
