@@ -43,5 +43,12 @@ namespace BookShelf.UI.Pages
             await GetBooks();
             StateHasChanged();
         }
+
+        public async Task Delete(string bookId)
+        {
+            await BookService.DeleteBook(bookId);
+            await GetBooks();
+            StateHasChanged();
+        }
     }
 }

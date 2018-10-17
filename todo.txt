@@ -2,14 +2,13 @@ Todo:
 - Validation
 - Put Book Function
 - Clean up API gateway addresses
-- Add DynamoDb Attributes to Book object
-- Delete Book Function
-- UI for update and delete
+- UI for update
 - Cognito?
 - S3 Hosting
 - Investigate Newtonsoft error
 
 Done:
+- Delete Book Function
 - Reset API
 - Host on Github pages
 - Shared Library for Book objects

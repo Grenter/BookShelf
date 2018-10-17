@@ -61,7 +61,7 @@ else
                          @book.Shelf
                      </div>
                      <div class="col">
-                         <button class="btn btn-danger">Delete</button>
+                         <button onclick="@(() => Delete(book.Id))" class="btn btn-danger">Delete</button>
                      </div>
                  </div>
              }
