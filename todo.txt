@@ -1,6 +1,5 @@
 Todo:
 - Validation
-- Put Book Function
 - Clean up API gateway addresses
 - UI for update
 - Cognito?
@@ -8,6 +7,7 @@ Todo:
 - Investigate Newtonsoft error
 
 Done:
+- Put Book Function
 - Delete Book Function
 - Reset API
 - Host on Github pages

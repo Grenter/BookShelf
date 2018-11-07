@@ -103,5 +103,30 @@ namespace BookShelf.Lambda
 
             return ResponseBuilder.Http200(JsonConvert.SerializeObject(true));
         }
+
+        public APIGatewayProxyResponse PutBook(APIGatewayProxyRequest request, ILambdaContext context)
+        {
+            var qryParams = request.QueryStringParameters;
+
+            context.Logger.LogLine(string.Join(',', qryParams.Values));
+
+            var dbContext = DynamoDbUtil.BuildContext();
+
+            var existingBook = dbContext.LoadAsync<Book>(qryParams["bookId"]).Result;
+
+            var updateBook = JsonConvert.DeserializeObject<Book>(request.Body);
+
+            existingBook.Authors = updateBook.Authors;
+            existingBook.Genre = updateBook.Genre;
+            existingBook.Title = updateBook.Title;
+            existingBook.YearRead = updateBook.YearRead;
+            existingBook.Shelf = updateBook.Shelf;
+            existingBook.CoverImage = updateBook.CoverImage;
+            existingBook.Format = updateBook.Format;
+
+            dbContext.SaveAsync(existingBook).Wait();
+
+            return ResponseBuilder.Http200(JsonConvert.SerializeObject(existingBook));
+        }
     }
 }
