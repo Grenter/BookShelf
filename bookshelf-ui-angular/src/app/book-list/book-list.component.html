@@ -12,10 +12,16 @@
 
 <hr />
 
-<div class="row">
-  <div class="col"></div>
-  <div class="col-6"></div>
-  <div class="col"></div>
-  <div class="col"></div>
+<div *ngFor="let book of books" class="row">
+  <div class="col"><img [src]="book.coverImage" class="cover-image" /></div>
+  <div class="col-6">
+    <span>{{ book.title }}</span>
+  </div>
+  <div class="col">
+    <span>{{ book.authors }}</span>
+  </div>
+  <div class="col">
+    <span>{{ book.shelf }}</span>
+  </div>
   <div class="col"></div>
 </div>
