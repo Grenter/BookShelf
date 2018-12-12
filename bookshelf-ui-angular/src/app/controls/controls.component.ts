@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from './../book.service';
 
 @Component({
   selector: 'app-controls',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
   }
 
+  resetBooks(): void {
+    this.bookService.resetBooks()
+      .subscribe();
+  }
 }

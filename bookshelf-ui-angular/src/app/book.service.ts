@@ -28,6 +28,10 @@ export class BookService {
       );
   }
 
+  resetBooks(): Observable<boolean> {
+    return this.http.get<boolean>('https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/reset', httpOptions);
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(operation);
