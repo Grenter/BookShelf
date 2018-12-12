@@ -2,7 +2,7 @@ import { Book } from './book';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,6 +24,15 @@ export class BookService {
       .delete<boolean>(`https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books?bookId=${bookId}`, httpOptions)
       .pipe(
         tap(_ => console.log(`deleted hero id=${bookId}`)),
+        catchError(this.handleError(`Delete bookId=${bookId}`, false))
       );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(operation);
+      console.error(error);
+      return of(result as T);
+    };
   }
 }
