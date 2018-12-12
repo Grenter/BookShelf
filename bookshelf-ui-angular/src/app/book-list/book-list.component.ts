@@ -24,6 +24,11 @@ export class BookListComponent implements OnInit {
 
   deleteBook(bookId: string): void {
     this.bookService.deleteBook(bookId)
-      .subscribe();
+      .subscribe(success => {
+        if (success) {
+          const index = this.books.indexOf(this.books.filter(i => i.Id === bookId)[0]);
+          this.books.splice(index, 1);
+        }
+      });
   }
 }

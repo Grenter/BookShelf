@@ -1,12 +1,24 @@
 Todo:
+- Add missing fields
+- Implement update UI
+- Implement routing
 - Validation
-- Clean up API gateway addresses
-- UI for update
-- Cognito?
-- S3 Hosting
 - Investigate Newtonsoft error
 
+AWS Todo:
+- Extract utils into nuget package
+- Clean up API gateway addresses
+- Cognito
+
+Blazor Todo:
+- Enum for format
+
+Angular Todo:
+- Implement Reset books in angular
+- Implement Add books in angular
+
 Done:
+- Implement Delete books in angular
 - Put Book Function
 - Delete Book Function
 - Reset API
