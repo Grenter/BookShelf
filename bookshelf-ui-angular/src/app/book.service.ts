@@ -2,7 +2,7 @@ import { Book } from './book';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +17,14 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books', httpOptions);
+  }
+
+  postBook(book: Book): Observable<string> {
+    return this.http.post<string>('https://uhguay2qye.execute-api.eu-west-2.amazonaws.com/Books/books', book, httpOptions)
+    .pipe(
+      tap((bookId: string) => console.log(`Book Added: ${bookId}`),
+      catchError(this.handleError(`Add book=${book.Title}`))
+    ));
   }
 
   deleteBook(bookId: string): Observable<boolean> {
