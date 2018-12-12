@@ -20,19 +20,19 @@ namespace BookShelf.Lambda
             {
                 Authors = "Kent Beck",
                 CoverImage = "https://images-na.ssl-images-amazon.com/images/I/51kDbV%2BN65L._SX396_BO1,204,203,200_.jpg",
-                Format = "Kindle",
+                Format = "Paperback",
                 Genre = "Computer Science > Technical",
                 Id = "80fb277a-049f-44f6-9f5a-7757dd8388d9",
-                Shelf = "To Read",
+                Shelf = "Read",
                 Title = "Test Driven Development: By Example",
-                YearRead = 0
+                YearRead = 2018
             },
             new Book
             {
                 Authors = "Robert Martin",
                 CoverImage = "https://images.gr-assets.com/books/1436202607l/3735293.jpg",
                 Format = "Kindle",
-                Genre = "Computer Science > Technical\n",
+                Genre = "Computer Science > Technical",
                 Id = "e13f4d30-6318-4c9d-b49c-f92edc473fcf",
                 Shelf = "Read",
                 Title = "Clean Code: A Handbook of Agile Software Craftsmanship",
