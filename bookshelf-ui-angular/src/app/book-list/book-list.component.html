@@ -8,23 +8,23 @@
     <div class="col">Shelf</div>
     <div class="col"></div>
   </div>
-</div>
 
-<hr />
+  <hr />
 
-<div *ngFor="let book of books" class="row">
-  <div class="col"><img [attr.src]="book.CoverImage" class="cover-image" /></div>
-  <div class="col-6">
-    <span>{{ book.Title }}</span>
-  </div>
-  <div class="col">
-    <span>{{ book.Authors }}</span>
-  </div>
-  <div class="col">
-    <span>{{ book.Shelf }}</span>
-  </div>
-  <div class="col">
-    <button class="btn btn-danger"
-            (click)="deleteBook(book.Id)">Delete</button>
+  <div *ngFor="let book of books" class="row">
+    <div class="col"><img [attr.src]="book.CoverImage" class="cover-image" /></div>
+    <div class="col-6">
+      <span>{{ book.Title }}</span>
+    </div>
+    <div class="col">
+      <span>{{ book.Authors }}</span>
+    </div>
+    <div class="col">
+      <span>{{ book.Shelf }}</span>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger"
+              (click)="deleteBook(book.Id)">Delete</button>
+    </div>
   </div>
 </div>
