@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { BookService } from './../book.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { BookService } from './../book.service';
   styleUrls: ['./controls.component.css']
 })
 export class ControlsComponent implements OnInit {
+  @Output() resetEvent = new EventEmitter();
 
   constructor(private bookService: BookService) { }
 
@@ -15,6 +16,10 @@ export class ControlsComponent implements OnInit {
 
   resetBooks(): void {
     this.bookService.resetBooks()
-      .subscribe();
+      .subscribe(success => {
+        if (success) {
+          this.resetEvent.emit();
+        }
+      });
   }
 }

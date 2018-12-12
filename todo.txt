@@ -14,10 +14,10 @@ Blazor Todo:
 - Enum for format
 
 Angular Todo:
-- Implement Reset books in angular
 - Implement Add books in angular
 
 Done:
+- Implement Reset books in angular
 - Implement Delete books in angular
 - Put Book Function
 - Delete Book Function

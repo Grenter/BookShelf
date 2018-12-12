@@ -7,7 +7,7 @@
   </div>
 
   <div class="content px-4">
-    <app-controls></app-controls>
-    <app-book-list></app-book-list>
+    <app-controls (resetEvent)="booklist.getBooks()"></app-controls>
+    <app-book-list #booklist></app-book-list>
   </div>
 </div>
