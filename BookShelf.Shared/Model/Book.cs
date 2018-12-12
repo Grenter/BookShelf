@@ -1,4 +1,6 @@
-﻿namespace BookShelf.Shared.Model
+﻿using BookShelf.Shared.Enums;
+
+namespace BookShelf.Shared.Model
 {
     public class Book
     {
@@ -9,7 +11,7 @@
         public bool Own { get; set; }
         public string Genre { get; set; }
         public int YearRead { get; set; }
-        public string Format { get; set; }
+        public Format Format { get; set; }
         public string CoverImage { get; set; }
     }
 }

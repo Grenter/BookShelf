@@ -4,6 +4,7 @@ using Amazon.DynamoDBv2.DataModel;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using BookShelf.Lambda.Util;
+using BookShelf.Shared.Enums;
 using BookShelf.Shared.Model;
 using Newtonsoft.Json;
 
@@ -20,7 +21,7 @@ namespace BookShelf.Lambda
             {
                 Authors = "Kent Beck",
                 CoverImage = "https://images-na.ssl-images-amazon.com/images/I/51kDbV%2BN65L._SX396_BO1,204,203,200_.jpg",
-                Format = "Paperback",
+                Format = Format.Paperback,
                 Genre = "Computer Science > Technical",
                 Id = "80fb277a-049f-44f6-9f5a-7757dd8388d9",
                 Shelf = "Read",
@@ -31,7 +32,7 @@ namespace BookShelf.Lambda
             {
                 Authors = "Robert Martin",
                 CoverImage = "https://images.gr-assets.com/books/1436202607l/3735293.jpg",
-                Format = "Kindle",
+                Format = Format.Kindle,
                 Genre = "Computer Science > Technical",
                 Id = "e13f4d30-6318-4c9d-b49c-f92edc473fcf",
                 Shelf = "Read",
