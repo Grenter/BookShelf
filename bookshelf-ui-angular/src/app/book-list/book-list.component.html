@@ -23,5 +23,8 @@
   <div class="col">
     <span>{{ book.Shelf }}</span>
   </div>
-  <div class="col"></div>
+  <div class="col">
+    <button class="btn btn-danger"
+            (click)="deleteBook(book.Id)">Delete</button>
+  </div>
 </div>
